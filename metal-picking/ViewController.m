@@ -7,6 +7,16 @@
 //
 
 #import "ViewController.h"
+#import <Metal/Metal.h>
+#import <MetalKit/MetalKit.h>
+
+@interface ViewController ()<MTKViewDelegate>
+{
+    id <MTLDevice> device;
+    id <MTLCommandQueue> commandQueue;
+    
+}
+@end
 
 @implementation ViewController
 
@@ -16,6 +26,13 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)mtkView:(MTKView *)view drawableSizeWillChange:(CGSize)size{
+    
+}
+
+-(void)drawInMTKView:(MTKView *)view{
+    
+}
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];

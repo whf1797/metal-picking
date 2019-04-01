@@ -14,6 +14,10 @@
 		E2A8C8A122525D03001EEA7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A8C8A022525D03001EEA7F /* main.m */; };
 		E2A8C8AC22525D03001EEA7F /* metal_pickingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A8C8AB22525D03001EEA7F /* metal_pickingTests.m */; };
 		E2A8C8B722525D03001EEA7F /* metal_pickingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A8C8B622525D03001EEA7F /* metal_pickingUITests.m */; };
+		E2A8C8C722525DDD001EEA7F /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A8C8C622525DDD001EEA7F /* Renderer.m */; };
+		E2A8C8CA225263A5001EEA7F /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A8C8C9225263A5001EEA7F /* Node.m */; };
+		E2A8C8CD22526577001EEA7F /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A8C8CC22526577001EEA7F /* Camera.m */; };
+		E2A8C8D322526AC3001EEA7F /* WHMath.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A8C8D222526AC3001EEA7F /* WHMath.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,14 @@
 		E2A8C8B222525D03001EEA7F /* metal-pickingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "metal-pickingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A8C8B622525D03001EEA7F /* metal_pickingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = metal_pickingUITests.m; sourceTree = "<group>"; };
 		E2A8C8B822525D03001EEA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2A8C8C522525DDD001EEA7F /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		E2A8C8C622525DDD001EEA7F /* Renderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Renderer.m; sourceTree = "<group>"; };
+		E2A8C8C8225263A5001EEA7F /* Node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		E2A8C8C9225263A5001EEA7F /* Node.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
+		E2A8C8CB22526577001EEA7F /* Camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		E2A8C8CC22526577001EEA7F /* Camera.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
+		E2A8C8D122526AC3001EEA7F /* WHMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHMath.h; sourceTree = "<group>"; };
+		E2A8C8D222526AC3001EEA7F /* WHMath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHMath.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +112,13 @@
 		E2A8C89322525D02001EEA7F /* metal-picking */ = {
 			isa = PBXGroup;
 			children = (
+				E2A8C8C422525D8B001EEA7F /* Scence */,
 				E2A8C89422525D02001EEA7F /* AppDelegate.h */,
 				E2A8C89522525D02001EEA7F /* AppDelegate.m */,
 				E2A8C89722525D02001EEA7F /* ViewController.h */,
 				E2A8C89822525D02001EEA7F /* ViewController.m */,
+				E2A8C8C522525DDD001EEA7F /* Renderer.h */,
+				E2A8C8C622525DDD001EEA7F /* Renderer.m */,
 				E2A8C89A22525D03001EEA7F /* Assets.xcassets */,
 				E2A8C89C22525D03001EEA7F /* Main.storyboard */,
 				E2A8C89F22525D03001EEA7F /* Info.plist */,
@@ -129,6 +144,19 @@
 				E2A8C8B822525D03001EEA7F /* Info.plist */,
 			);
 			path = "metal-pickingUITests";
+			sourceTree = "<group>";
+		};
+		E2A8C8C422525D8B001EEA7F /* Scence */ = {
+			isa = PBXGroup;
+			children = (
+				E2A8C8C8225263A5001EEA7F /* Node.h */,
+				E2A8C8C9225263A5001EEA7F /* Node.m */,
+				E2A8C8CB22526577001EEA7F /* Camera.h */,
+				E2A8C8CC22526577001EEA7F /* Camera.m */,
+				E2A8C8D122526AC3001EEA7F /* WHMath.h */,
+				E2A8C8D222526AC3001EEA7F /* WHMath.m */,
+			);
+			path = Scence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +288,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2A8C8CA225263A5001EEA7F /* Node.m in Sources */,
+				E2A8C8C722525DDD001EEA7F /* Renderer.m in Sources */,
 				E2A8C89922525D02001EEA7F /* ViewController.m in Sources */,
+				E2A8C8D322526AC3001EEA7F /* WHMath.m in Sources */,
 				E2A8C8A122525D03001EEA7F /* main.m in Sources */,
+				E2A8C8CD22526577001EEA7F /* Camera.m in Sources */,
 				E2A8C89622525D02001EEA7F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

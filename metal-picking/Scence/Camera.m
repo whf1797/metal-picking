@@ -7,7 +7,7 @@
 //
 
 #import "Camera.h"
-
+#import "WHMath.h"
 
 @interface Camera()
 
@@ -24,11 +24,11 @@
     return self;
 }
 
-//-(simd_float4x4)projectionMatrix:(float)aspectRatio {
-//    return float4x4(perspectiveProjectionRHFovY: radians_from_degrees(fieldOfView),
-//                    aspectRatio: aspectRatio,
-//                    nearZ: nearZ,
-//                    farZ: farZ)
-//}
+-(simd_float4x4)projectionMatrix:(float)aspectRatio {
+    return [WHMath create_floatfovy:[WHMath radians_from_degress:_fieldOfView]
+                     andaspectRatio:aspectRatio
+                           andnearZ:_nearZ
+                            andfarZ:_farZ];
+}
 
 @end

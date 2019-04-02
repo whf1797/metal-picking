@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DCA414392252FA9E00866643 /* HitResult.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA414382252FA9E00866643 /* HitResult.m */; };
+		DCA4143C2252FAC400866643 /* Ray.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA4143B2252FAC400866643 /* Ray.m */; };
+		DCA4143F2253009500866643 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA4143E2253009500866643 /* Scene.m */; };
+		DCA414422253030B00866643 /* BoundingSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA414412253030B00866643 /* BoundingSphere.m */; };
+		DCA4144422533EEE00866643 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = DCA4144322533EEE00866643 /* Shaders.metal */; };
 		E2A8C89622525D02001EEA7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A8C89522525D02001EEA7F /* AppDelegate.m */; };
 		E2A8C89922525D02001EEA7F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A8C89822525D02001EEA7F /* ViewController.m */; };
 		E2A8C89B22525D03001EEA7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2A8C89A22525D03001EEA7F /* Assets.xcassets */; };
@@ -38,6 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DCA414372252FA9E00866643 /* HitResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HitResult.h; sourceTree = "<group>"; };
+		DCA414382252FA9E00866643 /* HitResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HitResult.m; sourceTree = "<group>"; };
+		DCA4143A2252FAC400866643 /* Ray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ray.h; sourceTree = "<group>"; };
+		DCA4143B2252FAC400866643 /* Ray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ray.m; sourceTree = "<group>"; };
+		DCA4143D2253009500866643 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		DCA4143E2253009500866643 /* Scene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
+		DCA414402253030B00866643 /* BoundingSphere.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoundingSphere.h; sourceTree = "<group>"; };
+		DCA414412253030B00866643 /* BoundingSphere.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoundingSphere.m; sourceTree = "<group>"; };
+		DCA4144322533EEE00866643 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		E2A8C89122525D02001EEA7F /* metal-picking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "metal-picking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A8C89422525D02001EEA7F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2A8C89522525D02001EEA7F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -119,6 +133,7 @@
 				E2A8C89822525D02001EEA7F /* ViewController.m */,
 				E2A8C8C522525DDD001EEA7F /* Renderer.h */,
 				E2A8C8C622525DDD001EEA7F /* Renderer.m */,
+				DCA4144322533EEE00866643 /* Shaders.metal */,
 				E2A8C89A22525D03001EEA7F /* Assets.xcassets */,
 				E2A8C89C22525D03001EEA7F /* Main.storyboard */,
 				E2A8C89F22525D03001EEA7F /* Info.plist */,
@@ -153,8 +168,16 @@
 				E2A8C8C9225263A5001EEA7F /* Node.m */,
 				E2A8C8CB22526577001EEA7F /* Camera.h */,
 				E2A8C8CC22526577001EEA7F /* Camera.m */,
+				DCA414372252FA9E00866643 /* HitResult.h */,
+				DCA414382252FA9E00866643 /* HitResult.m */,
 				E2A8C8D122526AC3001EEA7F /* WHMath.h */,
 				E2A8C8D222526AC3001EEA7F /* WHMath.m */,
+				DCA4143A2252FAC400866643 /* Ray.h */,
+				DCA4143B2252FAC400866643 /* Ray.m */,
+				DCA4143D2253009500866643 /* Scene.h */,
+				DCA4143E2253009500866643 /* Scene.m */,
+				DCA414402253030B00866643 /* BoundingSphere.h */,
+				DCA414412253030B00866643 /* BoundingSphere.m */,
 			);
 			path = Scence;
 			sourceTree = "<group>";
@@ -288,11 +311,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA4144422533EEE00866643 /* Shaders.metal in Sources */,
+				DCA414422253030B00866643 /* BoundingSphere.m in Sources */,
 				E2A8C8CA225263A5001EEA7F /* Node.m in Sources */,
 				E2A8C8C722525DDD001EEA7F /* Renderer.m in Sources */,
+				DCA414392252FA9E00866643 /* HitResult.m in Sources */,
 				E2A8C89922525D02001EEA7F /* ViewController.m in Sources */,
+				DCA4143F2253009500866643 /* Scene.m in Sources */,
 				E2A8C8D322526AC3001EEA7F /* WHMath.m in Sources */,
 				E2A8C8A122525D03001EEA7F /* main.m in Sources */,
+				DCA4143C2252FAC400866643 /* Ray.m in Sources */,
 				E2A8C8CD22526577001EEA7F /* Camera.m in Sources */,
 				E2A8C89622525D02001EEA7F /* AppDelegate.m in Sources */,
 			);
@@ -459,7 +487,7 @@
 				CODE_SIGN_ENTITLEMENTS = "metal-picking/metal_picking.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = FDD358JY67;
+				DEVELOPMENT_TEAM = BJU6HT3376;
 				INFOPLIST_FILE = "metal-picking/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -477,7 +505,7 @@
 				CODE_SIGN_ENTITLEMENTS = "metal-picking/metal_picking.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = FDD358JY67;
+				DEVELOPMENT_TEAM = BJU6HT3376;
 				INFOPLIST_FILE = "metal-picking/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

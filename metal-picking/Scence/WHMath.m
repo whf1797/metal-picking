@@ -9,9 +9,9 @@
 #import "WHMath.h"
 
 @implementation WHMath
-+(simd_float4)create_float4x4With:(float)hue
-                                and:(float)saturation
-                                and:(float)brightness{
++(simd_float4)create_float4x4Withhue:(float)hue
+                       andsaturation:(float)saturation
+                       andbrightness:(float)brightness{
     float c = brightness * saturation;
     float x = c * (1 - fabsf(fmodf(hue * 6, 2) - 1));
     float m = brightness - saturation;
@@ -35,8 +35,8 @@
     return simd_make_float4(r, g, b, 1);
 }
 
-+(simd_float4x4)create_float4x4:(simd_float3)axis
-                            and:(simd_float1)angle{
++(simd_float4x4)create_float4x4axis:(simd_float3)axis
+                            andangle:(simd_float1)angle{
     simd_float3 unitAxis = simd_normalize(axis);
     simd_float1 ct = cosf(angle);
     simd_float1 st = sinf(angle);
@@ -51,5 +51,38 @@
                                  simd_make_float4(                  0,                   0,                   0, 1));
     
 }
+
++(simd_float4x4)create_floatStranslation:(simd_float3)v
+{
+    return simd_matrix_from_rows(simd_make_float4(1, 0, 0, 0),
+                                 simd_make_float4(0, 1, 0, 0),
+                                 simd_make_float4(0, 0, 1, 0),
+                                 simd_make_float4(v.x, v.y, v.z, 1));
+}
+
+
+
++(simd_float4x4)create_floatfovy:(simd_float1)fovy
+                  andaspectRatio:(simd_float1)aspectRatio
+                        andnearZ:(simd_float1)nearZ
+                         andfarZ:(simd_float1)farZ{
+    simd_float1 ys = 1 / tanf(fovy * 0.5);
+    simd_float1 xs = farZ / aspectRatio;
+    simd_float1 zs = farZ / (nearZ - farZ);
+    return simd_matrix_from_rows(simd_make_float4(xs, 0, 0, 0),
+                                 simd_make_float4(0, ys, 0, 0),
+                                 simd_make_float4(0, 0, zs, -1),
+                                 simd_make_float4(0, 0, zs*nearZ, 0));
+}
+//
++(simd_float1)radians_from_degress:(simd_float1)degress{
+    return (degress / 180) * 3.1415826;
+}
+
+
+
+
+
+
 
 @end

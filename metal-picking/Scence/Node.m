@@ -7,15 +7,9 @@
 //
 
 #import "Node.h"
-#import <simd/simd.h>
-#import <Metal/Metal.h>
-#import <MetalKit/MetalKit.h>
 
-@interface Meterial : NSObject
-@property(nonatomic, assign)simd_float4 color;
-@property(nonatomic, assign)BOOL hightlighted;
 
-@end
+
 
 @implementation Meterial
 
@@ -31,12 +25,86 @@
 @end
 
 @interface Node()
-@property(nonatomic, strong)NSString *name;
-@property(nonatomic, weak) Node *   parent;
-@property(nonatomic, strong)NSMutableArray <Node*> * children;
 
 @end
 
 @implementation Node
+
+-(instancetype)init{
+    if (self = [super init]) {
+        if (_parent) {
+            _worldTransform = simd_mul(_parent.worldTransform, _transform);
+        } else {
+            _worldTransform = _transform;
+        }
+        
+        _boundingSphere = [[BoundingSphere alloc] initWith:simd_make_float3(0, 0, 0) and:0];
+        
+        _transform = matrix_identity_float4x4;
+    }
+    return self;
+}
+
+
+-(void)addChildnode:(Node *)node {
+    if (node.parent != nil) {
+        
+    }
+    [_children addObject:node];
+}
+
+-(void)removeChildNode:(Node *)node{
+    [_children removeObject:node];
+}
+
+-(void)removeFromParent{
+    if (_parent) {
+        [_parent removeChildNode:self];
+    }
+}
+
+-(HitResult *)hitTest:(Ray *)ray{
+    simd_float4x4 modelToWorld = _worldTransform;
+    simd_float4x4 inverse =  simd_inverse(modelToWorld);
+    simd_float3 originT = simd_mul(modelToWorld, simd_make_float4(ray.origin, 1)).xyz;
+    simd_float3 directionT  = simd_mul(modelToWorld, simd_make_float4(ray.direction,0)).xyz;
+    Ray *localRay = [[Ray alloc] initWith:originT and:directionT];
+    
+//    _boundingSphere
+    
+    HitResult *nearrest;
+    simd_float4 modelPoint = [_boundingSphere intersect:localRay];
+    simd_float4 worldPoint = simd_mul(modelToWorld, modelPoint);
+    simd_float1 worldParameter = [ray interpolate:worldPoint];
+    
+    HitResult *nearestChildHit;
+    for (Node *child in _children) {
+       HitResult *childHit = [child hitTest:ray];
+        if (childHit) {
+            HitResult *nearestActualChildHit = nearestChildHit;
+            // ============
+            if (childHit.parameter < nearestActualChildHit.parameter) {
+                nearestChildHit = childHit;
+            }
+        } else{
+            nearestChildHit = childHit;
+        }
+    }
+    
+    HitResult *nearestActualChildHit = nearestChildHit;
+    if (nearestActualChildHit) {
+        HitResult* nearestActual = nearrest;
+        if (nearestActual) {
+            if (nearestActualChildHit.parameter < nearestActual.parameter) {
+                return nearestActualChildHit;
+            }
+        } else {
+            return nearestActualChildHit;
+        }
+    }
+    
+    return nearrest;
+}
+
 
 @end

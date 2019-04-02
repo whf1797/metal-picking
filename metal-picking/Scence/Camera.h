@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) float fieldOfView;
 @property(nonatomic, assign) float nearZ;
 @property(nonatomic, assign) float farZ;
-
+-(simd_float4x4)projectionMatrix:(float)aspectRatio;
 @end
 
 NS_ASSUME_NONNULL_END

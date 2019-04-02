@@ -164,20 +164,20 @@
 		E2A8C8C422525D8B001EEA7F /* Scence */ = {
 			isa = PBXGroup;
 			children = (
-				E2A8C8C8225263A5001EEA7F /* Node.h */,
-				E2A8C8C9225263A5001EEA7F /* Node.m */,
+				DCA414402253030B00866643 /* BoundingSphere.h */,
+				DCA414412253030B00866643 /* BoundingSphere.m */,
 				E2A8C8CB22526577001EEA7F /* Camera.h */,
 				E2A8C8CC22526577001EEA7F /* Camera.m */,
 				DCA414372252FA9E00866643 /* HitResult.h */,
 				DCA414382252FA9E00866643 /* HitResult.m */,
-				E2A8C8D122526AC3001EEA7F /* WHMath.h */,
-				E2A8C8D222526AC3001EEA7F /* WHMath.m */,
+				E2A8C8C8225263A5001EEA7F /* Node.h */,
+				E2A8C8C9225263A5001EEA7F /* Node.m */,
 				DCA4143A2252FAC400866643 /* Ray.h */,
 				DCA4143B2252FAC400866643 /* Ray.m */,
 				DCA4143D2253009500866643 /* Scene.h */,
 				DCA4143E2253009500866643 /* Scene.m */,
-				DCA414402253030B00866643 /* BoundingSphere.h */,
-				DCA414412253030B00866643 /* BoundingSphere.m */,
+				E2A8C8D122526AC3001EEA7F /* WHMath.h */,
+				E2A8C8D222526AC3001EEA7F /* WHMath.m */,
 			);
 			path = Scence;
 			sourceTree = "<group>";
@@ -487,7 +487,7 @@
 				CODE_SIGN_ENTITLEMENTS = "metal-picking/metal_picking.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = BJU6HT3376;
+				DEVELOPMENT_TEAM = FDD358JY67;
 				INFOPLIST_FILE = "metal-picking/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -505,7 +505,7 @@
 				CODE_SIGN_ENTITLEMENTS = "metal-picking/metal_picking.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = BJU6HT3376;
+				DEVELOPMENT_TEAM = FDD358JY67;
 				INFOPLIST_FILE = "metal-picking/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

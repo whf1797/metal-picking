@@ -68,7 +68,7 @@
 }
 
 -(void)makescene{
-    float GridSideCount = 3;
+    float GridSideCount = 1;
     float sphereRadius = 1;
     float spherePadding = 1;
     MTKMeshBufferAllocator *meshAlloctor = [[MTKMeshBufferAllocator alloc] initWithDevice:device];
@@ -88,7 +88,7 @@
             simd_float3 position = simd_make_float3(sphereRadius + (i) * (2 * sphereRadius + spherePadding) - ((gridSildLength) / 2),
                                                     sphereRadius + (j) * (2 * sphereRadius + spherePadding) - ((gridSildLength) / 2),
                                                     0);
-            
+            NSLog(@"make sence x = %f y = %f z = %f", position.x, position.y, position.z);
             node.transform = [WHMath create_floatStranslation:position];
             node.boundingSphere.radius = sphereRadius;
             [scene.rootNode addChildnode:node];
@@ -106,13 +106,20 @@
 }
 
 -(void)drawInMTKView:(MTKView *)view{
-    cameraAngle+=0.01;
+//    cameraAngle+=0.01;
     id <MTLCommandBuffer> commandBuffer = [commandQueue commandBuffer];
     MTLRenderPassDescriptor *renderPassDescriptor = view.currentRenderPassDescriptor;
     id <MTLRenderCommandEncoder> renderCommandEncoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
     //    simd_float1 angle =  ([WHMath create_floatStranslation:simd_make_float3(0, 0, 15)], cameraAngle);
-    pointOfview.transform = simd_mul([WHMath create_float4x4axis:simd_make_float3(0, 1, 0) andangle:cameraAngle] ,[WHMath create_floatStranslation:simd_make_float3(0, 0, 5)]);
     
+    simd_float4x4 tr1 = [WHMath create_float4x4axis:simd_make_float3(0, 1, 0) andangle:cameraAngle];
+    simd_float4x4 tr2 = [WHMath create_floatStranslation:simd_make_float3(0, 0, 15)];
+    
+    pointOfview.transform = simd_mul(tr1,tr2);
+
+
+    
+//    NSLog(@"transfomr = %f", pointOfview.transform);
     [renderer draw:scene and:pointOfview and:renderCommandEncoder];
     [renderCommandEncoder endEncoding];
     if (view.currentDrawable) {

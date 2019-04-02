@@ -39,16 +39,25 @@
         }
         
         _boundingSphere = [[BoundingSphere alloc] initWith:simd_make_float3(0, 0, 0) and:0];
-        
+        _children   = [[NSMutableArray alloc] initWithCapacity:1];
         _transform = matrix_identity_float4x4;
     }
     return self;
 }
 
+-(simd_float4x4)worldTransform {
+    if (_parent) {
+        _worldTransform = simd_mul(_parent.worldTransform, _transform);
+    } else {
+        _worldTransform = _transform;
+    }
+    return _worldTransform;
+}
+
 
 -(void)addChildnode:(Node *)node {
     if (node.parent != nil) {
-        
+        [node removeFromParent];
     }
     [_children addObject:node];
 }

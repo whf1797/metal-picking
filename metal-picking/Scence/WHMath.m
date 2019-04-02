@@ -54,10 +54,12 @@
 
 +(simd_float4x4)create_floatStranslation:(simd_float3)v
 {
-    return simd_matrix_from_rows(simd_make_float4(1, 0, 0, 0),
-                                 simd_make_float4(0, 1, 0, 0),
-                                 simd_make_float4(0, 0, 1, 0),
-                                 simd_make_float4(v.x, v.y, v.z, 1));
+    simd_float4x4 res = simd_matrix(simd_make_float4(1, 0, 0, 0),
+                                    simd_make_float4(0, 1, 0, 0),
+                                    simd_make_float4(0, 0, 1, 0),
+                                    simd_make_float4(v.x, v.y, v.z, 1));
+//    simd_matrix(<#simd_float4 col0#>, <#simd_float4 col1#>, <#simd_float4 col2#>, <#simd_float4 col3#>)
+    return res;
 }
 
 
@@ -69,10 +71,10 @@
     simd_float1 ys = 1 / tanf(fovy * 0.5);
     simd_float1 xs = farZ / aspectRatio;
     simd_float1 zs = farZ / (nearZ - farZ);
-    return simd_matrix_from_rows(simd_make_float4(xs, 0, 0, 0),
-                                 simd_make_float4(0, ys, 0, 0),
-                                 simd_make_float4(0, 0, zs, -1),
-                                 simd_make_float4(0, 0, zs*nearZ, 0));
+    return simd_matrix(simd_make_float4(xs, 0, 0, 0),
+                       simd_make_float4(0, ys, 0, 0),
+                       simd_make_float4(0, 0, zs, -1),
+                       simd_make_float4(0, 0, zs*nearZ, 0));
 }
 //
 +(simd_float1)radians_from_degress:(simd_float1)degress{

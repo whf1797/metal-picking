@@ -93,10 +93,10 @@
     simd_float4x4 worldMatrix = matrix_identity_float4x4;
     
     id<MTLBuffer> constantBuffer =  _constantBuffers[_frameIndex];
-    [renderCommandEncoder setVertexBuffer:constantBuffer offset:1 atIndex:0];
+    [renderCommandEncoder setVertexBuffer:constantBuffer offset:0 atIndex:1];
     simd_float1 constantsOfset = 0;
     
-    
+    [self draw:scence.rootNode and:worldMatrix and:viewMatrix and:projectMatrix and:constantsOfset and:renderCommandEncoder];
 }
 
 -(void)draw:(Node *)node

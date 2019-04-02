@@ -15,8 +15,11 @@
 
 @implementation Scene
 
-//-(HitResult *)hitTest:(Ray *)ray{
-//    return _rootNode.
-//}
+-(instancetype)init{
+    if (self = [super init]) {
+        _rootNode = [Node new];
+    }
+    return self;
+}
 
 @end
